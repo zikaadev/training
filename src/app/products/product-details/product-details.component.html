@@ -1,0 +1,33 @@
+<!-- {{'nav.products' | translate: param}}
+<br><br>-->
+<div class="container-fluid">
+    <div class="jumbotron text-left">
+        <div>
+            {{'products.search' | translate: param}}: <input type="text" [(ngModel)]="searchText" placeholder="{{'products.searchParam' | translate: param}}">
+            <br><br>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{'products.id' | translate: param}}</th>
+                        <th>{{'products.title' | translate: param}}</th>
+                        <th>{{'products.description' | translate: param}}</th>
+                        <th>{{'products.price' | translate: param}}</th>
+                        <th>{{'products.image' | translate: param}}</th>
+                        <th>{{'products.quantity' | translate: param}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products | findByName: searchText">
+                        <td>{{product.id}}</td>
+                        <td>{{product.title | uppercase}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.price | currency:'EUR':'symbol':'1.2-2'}}</td>
+                        <td><img src="../../assets/images/{{product.image}}" height="50"></td>
+                        <td>{{product.quantity}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
