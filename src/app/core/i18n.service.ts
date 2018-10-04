@@ -5,6 +5,7 @@ import { includes } from 'lodash';
 import { Logger } from './logger.service';
 import * as enUS from '../../translations/en-US.json';
 import * as frFR from '../../translations/fr-FR.json';
+import * as spSP from '../../translations/sp-SP.json';
 import * as deDE from '../../translations/de-DE.json';
 
 const log = new Logger('I18nService');
@@ -30,6 +31,7 @@ export class I18nService {
     // Embed languages to avoid extra HTTP requests
     translateService.setTranslation('en-US', enUS);
     translateService.setTranslation('fr-FR', frFR);
+    translateService.setTranslation('sp-SP', spSP);
     translateService.setTranslation('de-DE', deDE);
   }
 
