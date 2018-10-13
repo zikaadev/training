@@ -18,9 +18,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products | findByName: searchText">
+                    <tr *ngFor="let product of products | findByName: searchText" (click)=open(product)>
                         <td>{{product.id}}</td>
-                        <td>{{product.title | uppercase}}</td>
+                        <td><a (click)="open(product)">{{product.title | uppercase}}</a></td>
                         <td>{{product.description}}</td>
                         <td>{{product.price | currency:'EUR':'symbol':'1.2-2'}}</td>
                         <td><img src="../../assets/images/{{product.image}}" height="50"></td>

@@ -8,6 +8,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PipesModule } from '@app/pipes/pipes.module';
 import { FindByName } from '@app/pipes/find-by-name.pipe';
 import { CommonModule } from '@angular/common';
+import { ProductsModalComponent } from './products-modal/products-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -15,11 +17,13 @@ import { CommonModule } from '@angular/common';
     TranslateModule,
     ProductsRoutingModule,
     PipesModule,
-    CommonModule
+    CommonModule,
+    NgbModule.forRoot()
   ],
   declarations: [
     ProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductsModalComponent
   ],
   providers: [FindByName],
   exports: []
