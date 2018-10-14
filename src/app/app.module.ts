@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { environment } from '@env/environment';
 import { CoreModule } from '@app/core';
@@ -19,6 +18,7 @@ import { HelperService } from '@app/core/helper.service';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PipesModule } from '@app/pipes/pipes.module';
 import { AboutModule } from '@app/about/about.module';
+import { ProductsModalComponent } from '@app/products/products-modal/products-modal.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,7 +37,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    NgbModule.forRoot(),
     CoreModule,
     SharedModule,
     HomeModule,

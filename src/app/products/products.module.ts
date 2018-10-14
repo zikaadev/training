@@ -9,7 +9,7 @@ import { PipesModule } from '@app/pipes/pipes.module';
 import { FindByName } from '@app/pipes/find-by-name.pipe';
 import { CommonModule } from '@angular/common';
 import { ProductsModalComponent } from './products-modal/products-modal.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -18,13 +18,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductsRoutingModule,
     PipesModule,
     CommonModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    NgbModalModule
   ],
   declarations: [
     ProductsComponent,
     ProductDetailsComponent,
     ProductsModalComponent
   ],
+  entryComponents: [ProductsModalComponent],
   providers: [FindByName],
   exports: []
 })

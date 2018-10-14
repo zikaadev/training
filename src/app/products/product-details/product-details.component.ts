@@ -3,8 +3,11 @@ import { HelperService } from '../../core/helper.service';
 import { Product } from '../../core/models/product';
 import { TranslateService } from '@ngx-translate/core';
 import { IProduct } from '../../core/interfaces/iproduct';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsModalComponent } from '../products-modal/products-modal.component';
+import { Modal, BSModalContext } from 'ngx-modialog/plugins/bootstrap';
+import { overlayConfigFactory } from 'ngx-modialog';
 
 @Component({
   selector: 'app-product-details',
@@ -16,7 +19,7 @@ export class ProductDetailsComponent {
   param = { value: 'world' };
   filteredProducts: Product[];
   selectedProduct: Product;
-  modalState = false;
+  products: Product[];
   _searchText: string;
   get searchText(): string {
     return this._searchText;
@@ -34,12 +37,12 @@ export class ProductDetailsComponent {
     this.filteredProducts = this.products;
     this.searchText = '';
   }
-  products: Product[];
 
-  open(selectedProduct: Product) {
-    this.modalState = true;
-    this.selectedProduct = selectedProduct;
-    // const modalRef = this.modalService.open(ProductsModalComponent);
+
+  open(product: Product) {
+    // this.selectedProduct = product;
+    const modalRef = this.modalService.open(ProductsModalComponent);
+    modalRef.componentInstance.selectedProduct = product;
     // modalRef.componentInstance.id = this.selectedProduct.id;
     // modalRef.componentInstance.title = this.selectedProduct.title;
     // modalRef.componentInstance.description = this.selectedProduct.description;
