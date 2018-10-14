@@ -1,8 +1,10 @@
 {
-  "APP_NAME": "training",
+  "APP_NAME": "Adidas",
   "About": "About",
   "Hello world !": "Hello world !",
   "Home": "Home",
+  "Administration": "Administration",
+	"Products": "Products",
   "Logged in as": "Logged in as",
   "Login": "Login",
   "Logout": "Logout",
