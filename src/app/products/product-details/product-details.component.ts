@@ -12,7 +12,7 @@ import { overlayConfigFactory } from 'ngx-modialog';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css']
+  styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent {
 
@@ -40,15 +40,8 @@ export class ProductDetailsComponent {
 
 
   open(product: Product) {
-    // this.selectedProduct = product;
     const modalRef = this.modalService.open(ProductsModalComponent);
     modalRef.componentInstance.selectedProduct = product;
-    // modalRef.componentInstance.id = this.selectedProduct.id;
-    // modalRef.componentInstance.title = this.selectedProduct.title;
-    // modalRef.componentInstance.description = this.selectedProduct.description;
-    // modalRef.componentInstance.price = this.selectedProduct.price;
-    // modalRef.componentInstance.image = this.selectedProduct.image;
-    // modalRef.componentInstance.quantity = this.selectedProduct.quantity;
   }
 
   performFilter(filterBy: string): Product[] {

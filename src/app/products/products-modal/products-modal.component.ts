@@ -9,6 +9,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ProductsModalComponent {
   @Input() selectedProduct: Product;
+  param = {value: 'world'};
 
   constructor(public activeModal: NgbActiveModal) { }
 

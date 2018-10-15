@@ -10,6 +10,8 @@ import { FindByName } from '@app/pipes/find-by-name.pipe';
 import { CommonModule } from '@angular/common';
 import { ProductsModalComponent } from './products-modal/products-modal.component';
 import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductFormComponent } from './product-form/product-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -19,12 +21,14 @@ import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     PipesModule,
     CommonModule,
     NgbModule.forRoot(),
-    NgbModalModule
+    NgbModalModule,
+    HttpClientModule
   ],
   declarations: [
     ProductsComponent,
     ProductDetailsComponent,
-    ProductsModalComponent
+    ProductsModalComponent,
+    ProductFormComponent
   ],
   entryComponents: [ProductsModalComponent],
   providers: [FindByName],
