@@ -1,37 +1,51 @@
-<div class="container-fluid mb-5"><!-- https://www.youtube.com/watch?v=2cWPk2X79is&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ&index=37 -->
+<div class="container">
   <h2>Products form</h2>
-<form #productForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="!submitted" novalidate>
-  {{productForm.value | json}}
+<form #myform="ngForm" (ngSubmit)="onSubmit()" novalidate><!--  *ngIf="!submitted" -->
+  <!-- Angular: {{myform.value | json}}
   <hr />
-  {{productModel | json}}
+  Model: {{product | json}} -->
 
   <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" required ([ngModel])="productsModel.title" id="title" name="title"  pattern="[A-Za-z]{3,15}" minlength="3" maxlength="15">
-    <!-- <div class="alert alert-danger" > *ngIf="title.touched && !title.valid" -->
-      <!-- <div *ngIf="title.errors.required">Title is required</div>
+    <label class="control-label">Title</label>
+    <input type="text" class="form-control" required 
+    [(ngModel)]="product.title"  name="title"  pattern="[A-Za-z]{3,15}" minlength="3" maxlength="15" #title="ngModel">
+    <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+      <div *ngIf="title.errors.required">Title is required</div>
       <div *ngIf="title.errors.minlength">Title should be at least {{title.errors.minlength.requiredLength}} characters</div>
       <div *ngIf="title.errors.pattern">Title should match the pattern</div> 
-    </div> -->
+    </div>
+    <!-- {{title.className}} -->
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" required ([ngModel])="productsModel.description" id="description" name="description" >
-    <!-- <div class="alert alert-danger" *ngIf="description.touched && !description.valid"></div> -->
+    <input type="text" class="form-control" required 
+    [(ngModel)]="product.description" name="description" #description>
+    <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
+        <div *ngIf="description.errors.required">Description is required</div>
+    </div>
   </div>
   <div class="form-group">
     <label for="price">Price</label>
-    <input type="number" required ([ngModel])="productsModel.price" id="price" name="price" >
-    <!-- <div class="alert alert-danger" *ngIf="price.touched && !price.valid"></div> -->
+    <input type="number" class="form-control" required 
+    [(ngModel)]="product.price" name="price" #price>
+    <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+        <div *ngIf="price.errors.required">Price is required</div>
+        <div *ngIf="price.errors.invalid">Price can't be negative</div>
+    </div>
   </div>
   <div class="form-group">
     <label for="quantity">Quantity</label>
-    <input type="number" required ([ngModel])="productsModel.quantity" id="quantity" name="quantity" >
-    <!-- <div class="alert alert-danger" *ngIf="quantity.touched && !quantity.valid"></div> -->
+    <input type="number" class="form-control" required min="0"
+    [(ngModel)]="product.quantity" name="quantity" #quantity>
+    <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">
+        <div *ngIf="quantity.errors.required">Quantity is required</div>
+        <div *ngIf="quantity.errors.invalid">Quantity can't be negative</div>
+    </div>
   </div>
   <div class="form-group">
-    <input type="hidden" ([ngModel])="productsModel.image" value="fakeProduct.png">
-      <button class="btn btn-primary" type="submit">Save</button>
+    <input type="hidden" [(ngModel)]="product.image" value="product.png">
+      <button class="btn btn-primary" type="submit" [disabled]="myform.invalid">Save</button>
     </div>
+    <!-- Form valid: {{myform.className}} -->
 </form>
 </div>

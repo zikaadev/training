@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HelperService } from '../../core/helper.service';
-import { Product } from '../../core/models/product';
+import { Product } from '@app/core/models/product.model';
 import { TranslateService } from '@ngx-translate/core';
 import { IProduct } from '../../core/interfaces/iproduct';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';

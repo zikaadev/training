@@ -1,5 +1,5 @@
 // import {} from '';
-import { Product } from './models/product';
+import { Product } from '@app/core/models/product.model';
 import { IProduct } from './interfaces/iproduct';
 
 export class HelperService {
