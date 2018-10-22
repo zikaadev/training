@@ -19,6 +19,7 @@ import { CacheInterceptor } from './http/cache.interceptor';
 import { SharedModule } from '@app/shared';
 import { HelperService } from '@app/core/helper.service';
 import { PipesModule } from '@app/pipes/pipes.module';
+import { FooterComponent } from '@app/core/shell/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { PipesModule } from '@app/pipes/pipes.module';
   ],
   declarations: [
     HeaderComponent,
+    FooterComponent,
     ShellComponent
   ],
   providers: [

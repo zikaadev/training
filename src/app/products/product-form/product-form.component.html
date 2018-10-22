@@ -1,51 +1,57 @@
-<div class="container">
-  <h2>Products form</h2>
-<form #myform="ngForm" (ngSubmit)="onSubmit()" novalidate><!--  *ngIf="!submitted" -->
-  <!-- Angular: {{myform.value | json}}
+<div id="productsForm">
+  <h3 *ngIf="mode === 'new'">Add product</h3>
+  <h3 *ngIf="mode === 'update'">Update product</h3>
+  <form #myform="ngForm" novalidate>
+    <!--  *ngIf="!submitted" -->
+    <!-- Angular: {{myform.value | json}}
   <hr />
   Model: {{product | json}} -->
 
-  <div class="form-group">
-    <label class="control-label">Title</label>
-    <input type="text" class="form-control" required 
-    [(ngModel)]="product.title"  name="title"  pattern="[A-Za-z]{3,15}" minlength="3" maxlength="15" #title="ngModel">
-    <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
-      <div *ngIf="title.errors.required">Title is required</div>
-      <div *ngIf="title.errors.minlength">Title should be at least {{title.errors.minlength.requiredLength}} characters</div>
-      <div *ngIf="title.errors.pattern">Title should match the pattern</div> 
+    <div class="form-group">
+      <label for="selectedProduct.title" class="control-label">Title</label>
+      <input type="text" class="form-control" required [(ngModel)]="selectedProduct.title" name="selectedProduct.title"
+        pattern="[A-Za-z0-9]{3,15}" minlength="3" maxlength="15" #title="ngModel">
+      <!-- <div class="alert alert-danger" *ngIf="selectedProduct.title.touched && selectedProduct.title.invalid">
+        <div *ngIf="selectedProduct.title.serrors.required">Title is required</div>
+        <div *ngIf="selectedProduct.title.errors.minlength">Title should be at least
+          {{title.errors.minlength.requiredLength}} characters</div>
+        <div *ngIf="selectedProduct.title.errors.pattern">Title should match the pattern</div>
+      </div> -->
+      <!-- {{title.className}} -->
     </div>
-    <!-- {{title.className}} -->
-  </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <input type="text" class="form-control" required 
-    [(ngModel)]="product.description" name="description" #description>
-    <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
-        <div *ngIf="description.errors.required">Description is required</div>
+    <div class="form-group">
+      <label for="selectedProduct.description">Description</label>
+      <input type="text" class="form-control" required [(ngModel)]="selectedProduct.description" name="description"
+        #description>
+      <!-- <div class="alert alert-danger" *ngIf="selectedProduct.description.touched && selectedProduct.description.invalid">
+        <div *ngIf="selectedProduct.description.errors.required">Description is required</div>
+      </div> -->
     </div>
-  </div>
-  <div class="form-group">
-    <label for="price">Price</label>
-    <input type="number" class="form-control" required 
-    [(ngModel)]="product.price" name="price" #price>
-    <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
-        <div *ngIf="price.errors.required">Price is required</div>
-        <div *ngIf="price.errors.invalid">Price can't be negative</div>
+    <div class="form-group">
+      <label for="selectedProduct.price">Price</label>
+      <input type="number" class="form-control" required [(ngModel)]="selectedProduct.price" name="selectedProduct.price"
+        #price>
+      <!-- <div class="alert alert-danger" *ngIf="selectedProduct.price.touched && selectedProduct.price.invalid">
+        <div *ngIf="selectedProduct.price.errors.required">Price is required</div>
+        <div *ngIf="selectedProduct.price.errors.invalid">Price can't be negative</div>
+      </div> -->
     </div>
-  </div>
-  <div class="form-group">
-    <label for="quantity">Quantity</label>
-    <input type="number" class="form-control" required min="0"
-    [(ngModel)]="product.quantity" name="quantity" #quantity>
-    <div class="alert alert-danger" *ngIf="quantity.touched && quantity.invalid">
-        <div *ngIf="quantity.errors.required">Quantity is required</div>
-        <div *ngIf="quantity.errors.invalid">Quantity can't be negative</div>
+    <div class="form-group">
+      <label for="selectedProduct.quantity">Quantity</label>
+      <input type="number" class="form-control" required min="0" [(ngModel)]="selectedProduct.quantity" name="quantity"
+        #quantity>
+      <!-- <div class="alert alert-danger" *ngIf="selectedProduct.quantity.touched && selectedProduct.quantity.invalid">
+        <div *ngIf="selectedProduct.quantity.errors.required">Quantity is required</div>
+        <div *ngIf="selectedProduct.quantity.errors.invalid">Quantity can't be negative</div>
+      </div> -->
     </div>
-  </div>
-  <div class="form-group">
-    <input type="hidden" [(ngModel)]="product.image" name="image" value="product.png">
-      <button class="btn btn-primary" type="submit" [disabled]="myform.invalid">Save</button>
+    <div class="form-group">
+      <input type="hidden" [(ngModel)]="selectedProduct.image" name="image" value="product.png">
+      <button class="btn btn-primary" type="submit" (ngSubmit)="save(mode)" [disabled]="myform.invalid">
+        <span *ngIf="mode == 'new'">Save</span>
+        <span *ngIf="mode === 'update'">Update</span>
+      </button>
     </div>
     <!-- Form valid: {{myform.className}} -->
-</form>
+  </form>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { Product } from '@app/core/models/product.model';
 
@@ -8,17 +8,24 @@ import { Product } from '@app/core/models/product.model';
   styleUrls: ['./product-form.component.scss']
 })
 export class ProductFormComponent {
-  product = new Product(null, '', '', null, '../../assets/images/product.png', null);
+  @Input() selectedProduct: Product; // = new Product(null, '', '', null, '../../assets/images/product.png', null);
+  @Input() mode: string;
   submitted = false;
+
   constructor(private productsService: ProductsService) { }
 
-  onSubmit() {
-    console.log(this.product);
+  save(mode: string) {
+    console.log(this.selectedProduct);
     this.submitted = true;
-    this.productsService.postProduct(this.product)
-      .subscribe(
-        data => console.log('Success', data),
-        error => console.error('Error!', error)
-      );
+    if (this.mode = 'new') {
+      this.productsService.postProduct(this.selectedProduct)
+        .subscribe();
+    } else {
+      this.productsService.updateProduct(this.selectedProduct)
+        .subscribe(
+          // this.mode = 'new';
+        );
+    }
   }
+
 }

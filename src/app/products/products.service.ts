@@ -13,4 +13,8 @@ export class ProductsService {
   postProduct(product: Product) {
     return this.http.post<Product>(this.apiUurl, product);
   }
+
+  updateProduct(product: Product) {
+    return this.http.put<Product>(this.apiUurl + '/' + product.id, product);
+  }
 }

@@ -34,6 +34,7 @@
     "angular-pipes": "^8.1.1",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.7",
+    "faker": "^4.1.0",
     "lodash": "^4.17.10",
     "ngx-modialog": "^5.0.1",
     "rxjs": "^6.3.3",

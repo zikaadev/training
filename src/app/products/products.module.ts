@@ -12,6 +12,7 @@ import { ProductsModalComponent } from './products-modal/products-modal.componen
 import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductFormService } from '@app/products/product-form/product-form.service';
 
 @NgModule({
   imports: [
