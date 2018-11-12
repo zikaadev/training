@@ -17,9 +17,10 @@ import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
 import { ErrorHandlerInterceptor } from './http/error-handler.interceptor';
 import { CacheInterceptor } from './http/cache.interceptor';
 import { SharedModule } from '@app/shared';
-import { HelperService } from '@app/core/helper.service';
+import { HelperService } from '@app/core/services/helper.service';
 import { PipesModule } from '@app/pipes/pipes.module';
 import { FooterComponent } from '@app/core/shell/footer/footer.component';
+import { PersistenceService } from './services/persistence-service';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { FooterComponent } from '@app/core/shell/footer/footer.component';
     ApiPrefixInterceptor,
     ErrorHandlerInterceptor,
     CacheInterceptor,
+    PersistenceService,
     {
       provide: HttpClient,
       useClass: HttpService

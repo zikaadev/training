@@ -18,7 +18,7 @@ export class ProductFormComponent {
     console.log(this.selectedProduct);
     this.submitted = true;
     if (this.mode = 'new') {
-      this.productsService.postProduct(this.selectedProduct)
+      this.productsService.addProduct(this.selectedProduct)
         .subscribe();
     } else {
       this.productsService.updateProduct(this.selectedProduct)

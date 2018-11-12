@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '@app/core/models/product.model';
 
 @Component({
   selector: 'app-products',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent {
 
+  mode = 'new';
+  selectedProduct: Product;
   constructor() { }
 
 }

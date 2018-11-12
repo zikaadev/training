@@ -13,6 +13,7 @@ import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductFormService } from '@app/products/product-form/product-form.service';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 
 @NgModule({
   imports: [
@@ -29,9 +30,10 @@ import { ProductFormService } from '@app/products/product-form/product-form.serv
     ProductsComponent,
     ProductDetailsComponent,
     ProductsModalComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    DeleteModalComponent
   ],
-  entryComponents: [ProductsModalComponent],
+  entryComponents: [ProductsModalComponent, DeleteModalComponent],
   providers: [FindByName],
   exports: []
 })

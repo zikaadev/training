@@ -79,47 +79,6 @@
       "price": 77,
       "image": "img10.png",
       "quantity": "7"
-    },
-    {
-      "id": 11
-    },
-    {
-      "id": 12
-    },
-    {
-      "id": 13,
-      "title": "",
-      "description": "",
-      "price": null,
-      "image": "",
-      "quantity": null
-    },
-    {
-      "id": 14,
-      "title": "sdsdsds",
-      "description": "sss",
-      "price": -5,
-      "image": "",
-      "quantity": -6
-    },
-    {
-      "id": 15,
-      "title": "Sax",
-      "description": "Instrument",
-      "price": 33,
-      "image": "../../assets/images/product.png",
-      "quantity": 11
-    },
-    {
-      "id": 16,
-      "title": "Test",
-      "description": "test",
-      "price": 22,
-      "image": "../../assets/images/product.png",
-      "quantity": 2
-    },
-    {
-      "id": 17
     }
   ]
 }

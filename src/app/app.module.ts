@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
@@ -14,11 +14,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AdministrationModule } from './administration/administration.module';
 import { ProductsModule } from '@app/products/products.module';
-import { HelperService } from '@app/core/helper.service';
+import { HelperService } from '@app/core/services/helper.service';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PipesModule } from '@app/pipes/pipes.module';
 import { AboutModule } from '@app/about/about.module';
 import { ProductsModalComponent } from '@app/products/products-modal/products-modal.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -42,12 +43,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeModule,
     AboutModule,
     AdministrationModule,
+    TranslateModule.forRoot(),
     ProductsModule,
     LoginModule,
     AppRoutingModule,
     AdministrationModule,
-    ProductsModule,
-    PipesModule
+    PipesModule,
+    HttpClientModule,
+    SimpleNotificationsModule.forRoot(),
   ],
   declarations: [AppComponent],
   providers: [],
